@@ -1,0 +1,17 @@
+title: Parchment
+subtitle: a simple static site generator
+author: Taff Gao
+#bio: Write ugly code
+social:
+  twitter: https://twitter.com/gaotongfei
+  telegram: https://telegram.me/gaotongfei
+  github: https://github.com/gaotongfei
+  #instagram:
+  #weibo:
+  #facebook:
+
+contact: gaotongfei1995@gmail.com
+avatar: 'img/avatar.png'
+source: https://github.com/gaotongfei/parchment
+
+theme: pure
