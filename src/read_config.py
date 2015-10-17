@@ -20,37 +20,3 @@ class ReadConfig:
 
     def get_config_keys(self):
         return list(self._config.keys())
-
-    '''
-    @property
-    def title(self):
-        return self.config['title']
-
-    @property
-    def author(self):
-        return self.config['author']
-
-    @property
-    def bio(self):
-        return self.config['bio']
-
-    @property
-    def social(self):
-        return self.config['social']
-
-    @property
-    def contact(self):
-        return self.config['contact']
-
-    @property
-    def theme(self):
-        return self.config['theme']
-    '''
-
-'''
-a = ReadConfig('/home/gao/project/parchment/config.yaml')
-config_keys_list = a.get_config_keys()
-for key in config_keys_list:
-    value = a._config[key]
-    print(value)
-'''
