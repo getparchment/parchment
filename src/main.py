@@ -23,8 +23,6 @@ def main():
 
     delete_file_folder(base_path+"/public")
 
-    print('delete folder `public`')
-
     for file in list_file:
 
         # instance of File
