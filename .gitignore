@@ -6,3 +6,4 @@ public/*
 content/*
 .idea/*
 *.egg-info/*
+dist/*
