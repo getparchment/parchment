@@ -49,6 +49,8 @@ def main():
             posts_dict['title'] = f.title
             posts_dict['body'] = generate_markdown.output
             posts_dict['src'] = os.path.join(f.year, f.month, f.day, f.title, 'index.html')
+            post_datetime = datetime.datetime(int(f.year), int(f.month), int(f.day))
+            posts_dict['time'] = post_datetime.strftime('%d %b %y')
             posts_info_list.append(posts_dict)
 
             keys_list = cfg.get_config_keys()
