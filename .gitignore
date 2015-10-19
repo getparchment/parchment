@@ -7,3 +7,4 @@ content/*
 .idea/*
 *.egg-info/*
 dist/*
+build/*
