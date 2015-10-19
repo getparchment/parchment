@@ -14,6 +14,8 @@ Note: `parchment` now only support Python3.x
 ```
 wget https://pypi.python.org/packages/source/p/parchment/parchment-0.1.0.tar.gz
 tar -xvf parchment-0.1.0.tar.gz && cd parchment-0.1.0
+virtualenv -p python3 venv
+source venv/bin/activate
 python setup.py install
 ```
 
