@@ -18,8 +18,12 @@ def delete_file_folder(src):
             pass
     elif os.path.isdir(src):
         for item in os.listdir(src):
-            itemsrc = os.path.join(src, item)
-            delete_file_folder(itemsrc)
+            if item == 'CNAME':
+                print('CName')
+            else:
+                print("no cname")
+                itemsrc = os.path.join(src, item)
+                delete_file_folder(itemsrc)
         try:
             os.rmdir(src)
         except:
