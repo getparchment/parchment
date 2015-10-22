@@ -19,9 +19,10 @@ def delete_file_folder(src):
     elif os.path.isdir(src):
         for item in os.listdir(src):
             if item == 'CNAME':
-                print('CName')
+                pass
+            elif item == '.git':
+                pass
             else:
-                print("no cname")
                 itemsrc = os.path.join(src, item)
                 delete_file_folder(itemsrc)
         try:
