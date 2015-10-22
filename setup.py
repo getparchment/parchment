@@ -11,7 +11,6 @@ setup(
     url="https://github.com/gaotongfei/parchment",
     install_requires=[
         "click==5.1",
-        "Cython==0.23.3",
         "Jinja2==2.8",
         "MarkupSafe==0.23",
         "mistune==0.7.1",
