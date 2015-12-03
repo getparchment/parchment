@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ _.blog_name }}</title>
+ <meta charset='utf-8'>
+<link rel="stylesheet" href="./static/index.css">
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="header">
+		<span class="blog-name">{{ _.blog_name }}</span>
+		<a class="nav" href="/">Home</a>
+  	<!--<a class="nav" href="about.html">About</a>-->
+	</div>
+<div class="content">
+	<div class="post-list">
+	{% for post in posts %}
+    <div class="entry">
+      <a class="title" href="{{ post.src }}">{{ post.title }}</a>
+      <span class="date">{{ post.time }}</span>
+    </div>
+	{% endfor %}
+	</div>
+</div>
+
+<!--
+<div class="bottom_nav">
+{bottom_nav}
+</div>
+-->
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    font-family: 微软雅黑, Hiragino Sans GB, serif;
+}
+
+.wrapper {
+    margin: 2em auto;
+	width: 35em;
+    border-color: #DDD;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    min-width: 700px !important;
+}
+
+.entry {
+    padding: 1em 0px 0.3em;
+}
+
+.date {
+	font-size: 14px;
+    float:right;
+    margin-top:6px;
+}
+
+.bottom_nav {
+    margin-top:10px;
+}
+.next {
+    margin-right:0px;
+    float:right;
+    color: #000;
+}
+
+.next a{
+    color: #000;
+	text-decoration:none;
+}
+
+.next a:focus, a:active, a:hover{
+	text-decoration:underline;
+}
+
+.previous a{
+    color: #000;
+	text-decoration:none;
+}
+
+.previous a:focus, a:active, a:hover{
+	text-decoration:underline;
+}
+
+a.nav:visited {
+	color: #000;
+}
+
+.content a {
+	color: #4183C4;
+	text-decoration:none;
+	background: none repeat scroll 0% 0% transparent;
+}
+
+.content a:focus, a:active, a:hover{
+	text-decoration:underline;
+}
+
+.content a:visited {
+	color: #000;
+}
+
+.blog-name {
+    font-size: 1.3em;
+}
+
+.nav:link {
+    margin-left: 5%;
+    font-size: 1.2em;
+    color: #000;
+}
+
+.content {
+    margin-top: 5%;
+}
+
+.title:link {
+    font-size: 1.3em;
+    color: #000;
+}
+
