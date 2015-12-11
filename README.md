@@ -61,3 +61,8 @@ visit http://yourusername.github.io a few minutes later
 * pagination
 
 * perfect document
+
+## FAQ
+
+Q: How to solve `error: Setup script exited with error: command 'x86_64-linux-gnu-gcc' failed with exit status 1`?
+A: run `sudo apt-get install python3-dev` on Debian/Ubuntu, if still get that error see <a href="http://stackoverflow.com/a/30279877/4144064">stackoverflow</a>.
