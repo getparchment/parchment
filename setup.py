@@ -19,8 +19,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        parchment_init = src.commands.init_command:init
-        parchment_g = src.commands.generate_command:generate
-        parchment_generate = src.commands.generate_command:generate
+        parchment=src.commands:cli
     ''',
 )
