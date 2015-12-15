@@ -13,6 +13,7 @@ Note: `parchment` now only support Python3.x
 #### clone from repository
 ```
 git clone https://github.com/gaotongfei/parchment.git
+cd parchment/
 virtualenv -p python3 venv
 source venv/bin/activate
 python setup.py install
