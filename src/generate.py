@@ -1,6 +1,5 @@
 import mistune
 
-
 class GenerateMarkdown:
     def __init__(self, input):
         self.input = input

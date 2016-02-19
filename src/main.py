@@ -3,9 +3,9 @@ from jinja2 import Environment, FileSystemLoader
 from .read_file import File
 from .generate import GenerateMarkdown
 from .read_config import ReadConfig
-from .helpers import *
+from .helpers import cp_folders, delete_file_folder, sorted_ls 
 from datetime import datetime
-
+from math import ceil
 
 def main():
     base_path = os.path.dirname(os.path.abspath('__file__'))
@@ -15,22 +15,34 @@ def main():
     index_template = env.get_template(cfg._config['theme'] + '/index.html')
     post_template = env.get_template(cfg._config['theme'] + '/post.html')
 
-    # :list_file: list all the file names in directory `content`
-    list_file = os.listdir(base_path + '/content/')
-    list_file.sort(reverse=True)
+    # list_file: list all the file names in directory `content`
+    list_file = sorted_ls(base_path + '/content')
 
-    # :info_list: used to store all the infomartion that contains config info and posts info
+    # info_list: used to store all the infomartion that contains config info and posts info
     posts_info_list = []
 
     delete_file_folder(base_path+"/public")
 
-    for file in list_file:
+    # pagination
+    pagination_list = []
+    pagination_info = {}
 
+    per_page = cfg._config['per_page']
+    page = ceil(len(list_file) / per_page)
+    for _ in range(1, page+1):
+        pagination_info['page'] = _
+        pagination_info['file'] = list_file[(_-1)*per_page:_*per_page]
+        pagination_list.append(pagination_info.copy())
+
+    for file in list_file:
         # instance of File
         f = File(file)
-
         if not f.is_hidden_file():
-            file_info_list = [f.year, f.month, f.day, f.title]
+            for _ in pagination_list:
+                if file in _['file']:
+                    p = _['page']
+
+            file_info_list = ['page_'+str(p), f.year, f.month, f.day, f.title]
             full_path = base_path + "/public/" + "/".join(file_info_list)
 
             try:
@@ -46,13 +58,15 @@ def main():
             with open(base_path + '/content/' + file, 'r') as markdown_file:
                 md_f = markdown_file.read()
                 generate_markdown = GenerateMarkdown(md_f)
+
             posts_dict = {}
             posts_dict['title'] = f.title
             posts_dict['body'] = generate_markdown.output
-            posts_dict['src'] = os.path.join(f.year, f.month, f.day, f.title, 'index.html')
+            posts_dict['src'] = os.path.join(str(p), f.year, f.month, f.day, f.title, 'index.html')
             post_datetime = datetime(int(f.year), int(f.month), int(f.day))
             posts_dict['time'] = post_datetime.strftime('%d %b %y')
             posts_info_list.append(posts_dict)
+
 
             keys_list = cfg.get_config_keys()
             for key in keys_list:
@@ -63,9 +77,8 @@ def main():
             with open(full_path + '/index.html', 'w+') as output_post_file:
                 output_post_file.write(output_post_template)
 
-    '''
-        copy folders from parchment/templates/yourtheme/ to /parchment/public/
-    '''
+
+    # copy folders from parchment/templates/yourtheme/ to /parchment/public/
     cp_folders(os.path.join(base_path, 'templates', cfg._config['theme']), os.path.join(base_path, 'public'))
 
     output_index_template = index_template.render(posts=posts_info_list, _=cfg._config)

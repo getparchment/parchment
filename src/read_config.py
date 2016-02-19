@@ -1,6 +1,5 @@
 import yaml
 
-
 class ReadConfig:
     '''read config from .yaml config file
     '''

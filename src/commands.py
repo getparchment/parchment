@@ -4,10 +4,9 @@ import os
 import click
 from .main import main
 
-
 @click.group()
 def cli():
-	pass
+    pass
 
 @cli.command()
 def init():

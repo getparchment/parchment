@@ -8,6 +8,7 @@ social:
   #weibo:
   #facebook:
 
+per_page: 10        
 contact: example@example.com
 #avatar: ''
 #source: https://github.com/gaotongfei/parchment
