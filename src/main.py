@@ -14,6 +14,7 @@ def main():
     env = Environment(loader=FileSystemLoader('templates'))
     index_template = env.get_template(cfg._config['theme'] + '/index.html')
     post_template = env.get_template(cfg._config['theme'] + '/post.html')
+    pagination_template = env.get_template(cfg._config['theme'] + '/pagination.html')
 
     # list_file: list all the file names in directory `content`
     list_file = sorted_ls(base_path + '/content')
@@ -46,7 +47,6 @@ def main():
             file_info_list = ['page_'+str(p), f.year, f.month, f.day, f.title]
             full_path = base_path + "/public/" + "/".join(file_info_list)
 
-
             try:
                 os.makedirs(full_path)
                 os.mknod(full_path + '/index.html')
@@ -61,6 +61,7 @@ def main():
                 generate_markdown = GenerateMarkdown(md_f)
 
             posts_dict = {}
+            posts_dict['file_name'] = file
             posts_dict['title'] = f.title
             posts_dict['body'] = generate_markdown.output
             posts_dict['src'] = os.path.join('page_'+str(p), f.year, f.month, f.day, f.title, 'index.html')
@@ -83,6 +84,20 @@ def main():
     # copy folders from parchment/templates/yourtheme/ to /parchment/public/
     cp_folders(os.path.join(base_path, 'templates', cfg._config['theme']), os.path.join(base_path, 'public'))
 
-    output_index_template = index_template.render(posts=posts_info_list, _=cfg._config, pagination=pagination_list)
+    index_page = []
+    for index, pl in enumerate(pagination_list):
+        pagination_posts_info_list = []
+        for p in posts_info_list:
+            if p['file_name'] in pl['file']:
+                p['src'] = os.path.join(f.year, f.month, f.day, f.title, 'index.html')
+                pagination_posts_info_list.append(p)
+        if index == 0:
+            index_page = pagination_posts_info_list
+    
+        pagination_index_template = pagination_template.render(posts=pagination_posts_info_list, _=cfg._config, pagination=pagination_list)
+        with open(base_path + '/public/' + 'page_' + str(pl['page']) + '/index.html', 'w+') as pagination_index_file:
+            pagination_index_file.write(pagination_index_template)
+
+    output_index_template = index_template.render(posts=index_page, _=cfg._config, pagination=pagination_list)
     with open(base_path + '/public/' + 'index.html', 'w+') as output_index_file:
         output_index_file.write(output_index_template)

@@ -3,7 +3,7 @@
 <head>
 <title>{{ _.blog_name }}</title>
  <meta charset='utf-8'>
-<link rel="stylesheet" href="./static/index.css">
+<link rel="stylesheet" href="../../static/index.css">
 </head>
 <body>
 
@@ -27,13 +27,26 @@
 <div class="bottom_nav">
 	<div class="pagination">
 	{% for page in pagination %}
-	<a href="page_{{ page.page}}/index.html">{{ page.page }}</a>
+	<a class="pagination" id="{{page.page}}" href="#">{{ page.page }}</a>
 	{% endfor %}
 	</div>
   powered by <a href="https://github.com/gaotongfei/parchment">parchemnt</a>, theme <a href="https://github.com/skyline75489/Genie">Genie</a>
 </div>
 
 </div>
+<script type="text/javascript">
+	var href = window.location.href;
+	var l = document.createElement("a");
+	l.href = href;
+	l_pathname = l.pathname;
+	var pagination = document.getElementsByClassName("pagination");
+	for (var i=0;i<pagination.length;i++){
+			
+		pagination[i].pathname = 'page_' + pagination[i].id + '/index.html'
+		//console.log(href)
+	}
+
+</script>
 </body>
 
 </html>
