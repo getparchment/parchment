@@ -25,7 +25,12 @@
 </div>
 
 <div class="bottom_nav">
-  powered by <a href="https://github.com/gaotongfei/parchment">parchemnt</a>, theme <a href="https://github.com/skyline75489/Genie">Genie</a> created by <a href="https://github.com/skyline75489">skyline75489</a>
+	<div class="pagination">
+	{% for page in pagination %}
+	<a href="#">{{ page.page }}</a>
+	{% endfor %}
+	</div>
+  powered by <a href="https://github.com/gaotongfei/parchment">parchemnt</a>, theme <a href="https://github.com/skyline75489/Genie">Genie</a>
 </div>
 
 </div>
