@@ -89,8 +89,8 @@ def main():
         pagination_posts_info_list = []
         for p in posts_info_list:
             if p['file_name'] in pl['file']:
-                p['src'] = os.path.join(f.year, f.month, f.day, f.title, 'index.html')
                 pagination_posts_info_list.append(p)
+
         if index == 0:
             index_page = pagination_posts_info_list
     

@@ -17,7 +17,7 @@
 	<div class="post-list">
 	{% for post in posts %}
     <div class="entry">
-      <a class="title" href="{{ post.src }}">{{ post.title }}</a>
+			<a class="title" id="{{ post.src }}" href="#">{{ post.title }}</a>
       <span class="date">{{ post.time }}</span>
     </div>
 	{% endfor %}
@@ -35,16 +35,15 @@
 
 </div>
 <script type="text/javascript">
-	var href = window.location.href;
-	var l = document.createElement("a");
-	l.href = href;
-	l_pathname = l.pathname;
-	var pagination = document.getElementsByClassName("pagination");
-	for (var i=0;i<pagination.length;i++){
-			
-		pagination[i].pathname = 'page_' + pagination[i].id + '/index.html'
-		//console.log(href)
-	}
+var href = window.location.href;
+var pagination = document.getElementsByClassName("pagination");
+for (var i=0;i<pagination.length;i++){
+	pagination[i].pathname = 'page_' + pagination[i].id + '/index.html'
+}
+var postTitle = document.getElementsByClassName("title");
+for (var i=0;i<postTitle.length;i++){
+	postTitle[i].pathname = postTitle[i].id
+}
 
 </script>
 </body>
