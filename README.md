@@ -6,7 +6,7 @@ parchment is a simple static site generator written in Python
 
 icon designed by [Mirella](http://mirella-gabriele.deviantart.com/), thanks for the work. 
 
-Note: `parchment` now only support Python3.x
+Note: `parchment` now only support Python3.x and Linux
 
 ## install
 
