@@ -2,15 +2,12 @@
 
 parchment is a simple static site generator written in Python
 
-![parchment](http://ww2.sinaimg.cn/large/005BlYP6gw1ex5nm4d2a7j3074074q3e.jpg)
-
-icon designed by [Mirella](http://mirella-gabriele.deviantart.com/), thanks for the work. 
-
-Note: `parchment` now only support Python3.x and Linux
+Note: `parchment` now is only tested Python3.x and Linux
 
 ## install
 
 #### clone from repository
+
 ```
 git clone https://github.com/gaotongfei/parchment.git
 cd parchment/
@@ -32,30 +29,13 @@ parchment/
     ...
 ```
 
-run command **parchment init**, this command will create two empty folders: `content` and `public`
+`parchment init`: create two empty folders: `content` and `public`
 
-open folder `content`
+edit a markdown file named `YYYY-MM-DD-title.md`, for example `2015-10-19-parchment is a simple static site generator.md` under `content` folder
 
-create a markdown file named `YYYY-MM-DD-title.md`, for example `2015-10-19-parchment is a simple static site generator.md`
-
-edit it and then make a little change in the config file `config.yaml`
-
-run command **parchment generate**, you will see your markdown files have been generated to html files in folder `public`
+`parchment generate`: (you may need to use `sudo parchment generate` if you are using Mac OSX) you will see your markdown files have been generated to html files under the folder `public`
 
 **Note: make sure run `parchment generate` command in `parchment` directory**
-
-then create a repository named `yourusername.github.io` on github
-
-```
-cd public
-git init
-git add .
-git commit -m "first commit"
-git remote add origin https://github.com/yourusername/yourusername.github.io.git # Change `yourusername` with your username
-git push -u origin master
-```
-
-visit http://yourusername.github.io a few minutes later
 
 ## FAQ
 
