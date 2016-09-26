@@ -2,7 +2,7 @@
 
 parchment is a simple static site generator written in Python
 
-Note: `parchment` now is only tested Python3.x and Linux
+Note: `parchment` now is only tested on Python3.x and Linux
 
 ## install
 
