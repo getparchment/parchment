@@ -49,11 +49,11 @@ def main():
 
             try:
                 os.makedirs(full_path)
-                os.mknod(full_path + '/index.html')
+                open(os.path.join(full_path, 'index.html'), 'a').close()
             except FileExistsError:
                 delete_file_folder(full_path)
                 os.makedirs(full_path)
-                os.mknod(full_path + '/index.html')
+                open(os.path.join(full_path, 'index.html'), 'a').close()
                 print('File exists')
 
             with open(base_path + '/content/' + file, 'r') as markdown_file:
